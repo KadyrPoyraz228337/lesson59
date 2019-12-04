@@ -5,6 +5,7 @@ import List from "./components/List/list";
 
 import Form from "./components/Form/form";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import NorrisApp from "./components/NorrisApp/norrisApp";
 
 
 class App extends Component {
@@ -13,9 +14,15 @@ class App extends Component {
         movies: [
             {title: 'Movie name', id: nanoid()},
             {title: 'Movie name', id: nanoid()},
-        ]
+        ],
+        jokes: [],
     };
-    componentDidMount() {
+    async componentDidMount() {
+        // const joke = await fetch('https://api.chucknorris.io/jokes/random');
+        // if(joke.ok) {
+        //     const json = await joke.json();
+        //     console.log(json);
+        // }
         localStorage.setItem('movies', JSON.stringify(this.state))
     }
     componentDidUpdate() {
@@ -36,6 +43,7 @@ class App extends Component {
                     remove={this.removeMovie}
                     edit={this.editMovie}
                 />
+                <NorrisApp/>
             </Container>
         );
     }
