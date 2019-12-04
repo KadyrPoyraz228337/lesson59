@@ -18,7 +18,9 @@ class App extends Component {
     componentDidMount() {
         localStorage.setItem('movies', JSON.stringify(this.state))
     }
-
+    componentDidUpdate() {
+        localStorage.setItem('movies', JSON.stringify(this.state))
+    }
     render() {
         return (
             <Container className="bg-light p-5 border rounded">
