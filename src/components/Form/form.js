@@ -14,7 +14,7 @@ const Form = (
                 className="mr-5"
                 onChange={event => onChange(event)}
             />
-            <Button color="primary" onClick={onClick}>Add</Button>
+            <Button color="secondary" onClick={onClick}>Add</Button>
         </InputGroup>
     );
 };

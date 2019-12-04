@@ -20,10 +20,13 @@ class App extends Component {
     }
     componentDidUpdate() {
         localStorage.setItem('movies', JSON.stringify(this.state))
+        // console.log('apdated');
     }
+
+
     render() {
         return (
-            <Container className="bg-light p-5 border rounded">
+            <Container className="bg-light p-5 mx-auto my-3 border rounded">
                 <Form
                     onClick={this.addMovie}
                     onChange={this.changeText}
@@ -31,21 +34,32 @@ class App extends Component {
                 <List
                     movies={this.state.movies}
                     remove={this.removeMovie}
+                    edit={this.editMovie}
                 />
             </Container>
         );
     }
     changeText = event => this.setState({text: event.target.value});
+    editMovie = (id, event) => {
+        const movies = [...this.state.movies];
+        const index = movies.findIndex(movie => movie.id === id);
+        const movie = movies[index];
+        movie.title = event.target.value;
+        console.log(movies);
+
+
+        this.setState({movies: movies})
+    };
     addMovie = () => {
         if(this.state.text.length > 0) {
             const movies = [...this.state.movies];
-            movies.unshift({title: this.state.text, id: nanoid()});
+            movies.push({title: this.state.text, id: nanoid()});
             this.setState({movies})
         }
     };
     removeMovie = id => {
         const movies = [...this.state.movies];
-        const index = movies.findIndex(movie => movie.id = id);
+        const index = movies.findIndex(movie => movie.id === id);
         movies.splice(index, 1);
         this.setState({movies});
     }

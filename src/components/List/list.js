@@ -4,16 +4,16 @@ import ListGroup from "reactstrap/es/ListGroup";
 import ListItem from "./ListItem/listItem";
 
 const List = (
-    {movies, remove}
+    {movies, remove, edit}
 ) => {
     return (
         <ListGroup>
-            {movies.map((movie, index) => {
+            {movies.map((movie) => {
                 return <ListItem
                     key={movie.id}
                     title={movie.title}
-                    index={index+1}
                     remove={() => remove(movie.id)}
+                    edit={event => edit(movie.id, event)}
                 />
             })}
         </ListGroup>
