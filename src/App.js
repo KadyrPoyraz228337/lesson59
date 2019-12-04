@@ -9,10 +9,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 class App extends Component {
     state = localStorage.getItem('movies') ? JSON.parse(localStorage.getItem('movies')) : {
-      movies: [
-          {title: 'Movie name', id: nanoid()},
-          {title: 'Movie name', id: nanoid()},
-      ]
+        text: '',
+        movies: [
+            {title: 'Movie name', id: nanoid()},
+            {title: 'Movie name', id: nanoid()},
+        ]
     };
     render() {
         return (
