@@ -4,10 +4,16 @@ import InputGroup from "reactstrap/es/InputGroup";
 import Input from "reactstrap/es/Input";
 import Button from "reactstrap/es/Button";
 
-const Form = () => {
+const Form = (
+    {onChange}
+) => {
     return (
         <InputGroup className="m-3">
-            <Input placeholder="Add movie name" className="mr-5"/>
+            <Input
+                placeholder="Add movie name"
+                className="mr-5"
+                onChange={event => onChange(event)}
+            />
             <Button color="primary">Add</Button>
         </InputGroup>
     );

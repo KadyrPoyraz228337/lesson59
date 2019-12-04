@@ -18,13 +18,16 @@ class App extends Component {
     render() {
         return (
             <Container className="bg-light p-5">
-                <Form/>
+                <Form
+                    onChange={this.changeText}
+                />
                 <List
                     movies={this.state.movies}
                 />
             </Container>
         );
     }
+    changeText = event => this.setState({text: event.target.value});
 }
 
 export default App;
