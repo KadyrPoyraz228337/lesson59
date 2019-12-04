@@ -23,6 +23,7 @@ class App extends Component {
         return (
             <Container className="bg-light p-5">
                 <Form
+                    onClick={this.addMovie}
                     onChange={this.changeText}
                 />
                 <List
@@ -32,6 +33,13 @@ class App extends Component {
         );
     }
     changeText = event => this.setState({text: event.target.value});
+    addMovie = () => {
+        if(this.state.text.length > 0) {
+            const movies = [...this.state.movies];
+            movies.unshift({title: this.state.text, id: nanoid()});
+            this.setState({movies})
+        }
+    }
 }
 
 export default App;
