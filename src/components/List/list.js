@@ -4,7 +4,7 @@ import ListGroup from "reactstrap/es/ListGroup";
 import ListItem from "./ListItem/listItem";
 
 const List = (
-    {movies}
+    {movies, remove}
 ) => {
     return (
         <ListGroup>
@@ -13,6 +13,7 @@ const List = (
                     key={movie.id}
                     title={movie.title}
                     index={index+1}
+                    remove={() => remove(movie.id)}
                 />
             })}
         </ListGroup>

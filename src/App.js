@@ -21,13 +21,14 @@ class App extends Component {
 
     render() {
         return (
-            <Container className="bg-light p-5">
+            <Container className="bg-light p-5 border rounded">
                 <Form
                     onClick={this.addMovie}
                     onChange={this.changeText}
                 />
                 <List
                     movies={this.state.movies}
+                    remove={this.removeMovie}
                 />
             </Container>
         );
@@ -39,6 +40,12 @@ class App extends Component {
             movies.unshift({title: this.state.text, id: nanoid()});
             this.setState({movies})
         }
+    };
+    removeMovie = id => {
+        const movies = [...this.state.movies];
+        const index = movies.findIndex(movie => movie.id = id);
+        movies.splice(index, 1);
+        this.setState({movies});
     }
 }
 

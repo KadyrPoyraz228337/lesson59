@@ -4,7 +4,7 @@ import Button from "reactstrap/es/Button";
 import Input from "reactstrap/es/Input";
 
 const ListItem = (
-    {title, index}
+    {title, index, remove}
 ) => {
     return (
         <>
@@ -13,7 +13,10 @@ const ListItem = (
                     #{index}
                 </h6>
                 <Input value={title} className='d-inline-block mx-3'/>
-                <Button className="ml-auto">
+                <Button
+                    className="ml-auto"
+                    onClick={remove}
+                >
                     X
                 </Button>
             </ListGroupItem>
