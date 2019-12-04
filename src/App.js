@@ -15,6 +15,10 @@ class App extends Component {
             {title: 'Movie name', id: nanoid()},
         ]
     };
+    componentDidMount() {
+        localStorage.setItem('movies', JSON.stringify(this.state))
+    }
+
     render() {
         return (
             <Container className="bg-light p-5">
