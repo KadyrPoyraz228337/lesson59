@@ -18,16 +18,10 @@ class App extends Component {
         jokes: [],
     };
     async componentDidMount() {
-        // const joke = await fetch('https://api.chucknorris.io/jokes/random');
-        // if(joke.ok) {
-        //     const json = await joke.json();
-        //     console.log(json);
-        // }
         localStorage.setItem('movies', JSON.stringify(this.state))
     }
     componentDidUpdate() {
         localStorage.setItem('movies', JSON.stringify(this.state))
-        // console.log('apdated');
     }
 
 
